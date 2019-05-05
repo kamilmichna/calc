@@ -5,7 +5,7 @@ const output = require('./output');
 const calc = require('./models/calc')
 
 program
-    .version(0.1) //TODO change this to command / option / action schema
+    .version('1.0.0') //TODO change this to command / option / action schema
     .option('-c, --calc <arg>', 'calculate simple math expression')
     .parse(process.argv)
 

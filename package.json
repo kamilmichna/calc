@@ -1,7 +1,7 @@
 {
   "name": "calc",
-  "version": "0.1",
-  "description": "Calc is a simple cli node.js based tool for evaluating and calculating math expression, binary operations and number system convertion.",
+  "version": "1.0.0",
+  "description": "Calc is a simple cli node.js based tool for evaluating and calculating math expression and binary convertion",
   "main": "index.js",
   "bin": "./dev/bundle.js",
   "scripts": {
