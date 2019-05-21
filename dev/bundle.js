@@ -60,14 +60,27 @@ function decimalToBinary(decimalInteger) {
   return binaryString.join('');
 }
 
+function binaryToDecimal(binaryInteger) {
+  binaryInteger = binaryInteger.toString().split("").reverse();
+  var arrayToSum = [];
+  binaryInteger.map(function (val, idx) {
+    arrayToSum.push(val * Math.pow(2, idx));
+  });
+  binaryInteger = arrayToSum.reduce(function (data, el) {
+    return data + el;
+  });
+  return binaryInteger.toString();
+}
+
 var binaryDecimalConventer = {
-  decimalToBinary: decimalToBinary
+  decimalToBinary: decimalToBinary,
+  binaryToDecimal: binaryToDecimal
 };
 
 commander.version('1.0.0') //TODO change this to command / option / action schema
-.option('-c, --calc <arg>', 'calculate simple math expression').option('--d2b <args>', 'convert decimal int into binary').parse(process.argv); // link models to view (output.js)
+.option('-c, --calc <arg>', 'calculate simple math expression').option('--d2b <args>', 'convert decimal int into binary').option('--b2d <args>', 'convert binary int into decimal number ').parse(process.argv); // link models to view (output.js)
 
-if (commander.calc) output.printResult(calc_1(commander.calc));else if (commander.d2b) output.printResult(binaryDecimalConventer.decimalToBinary(commander.d2b));
+if (commander.calc) output.printResult(calc_1(commander.calc));else if (commander.d2b) output.printResult(binaryDecimalConventer.decimalToBinary(commander.d2b));else if (commander.b2d) output.printResult(binaryDecimalConventer.binaryToDecimal(commander.b2d));
 var main = {};
 
 module.exports = main;

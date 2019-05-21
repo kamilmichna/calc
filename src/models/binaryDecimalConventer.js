@@ -12,5 +12,16 @@ function decimalToBinary(decimalInteger){
     return binaryString.join('');
 }
 
+function binaryToDecimal(binaryInteger){
+    binaryInteger = binaryInteger.toString().split("").reverse();
+    let arrayToSum = [];
+    binaryInteger.map((val,idx)=>{
+        arrayToSum.push(val*Math.pow(2,idx));
+    })
+    binaryInteger = arrayToSum.reduce((data,el)=>{
+        return data + el;
+    })
+    return binaryInteger.toString();
+}
 
-module.exports = {decimalToBinary}
+module.exports = {decimalToBinary,binaryToDecimal}

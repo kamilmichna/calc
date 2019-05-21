@@ -9,9 +9,11 @@ program
     .version('1.0.0') //TODO change this to command / option / action schema
     .option('-c, --calc <arg>', 'calculate simple math expression')
     .option('--d2b <args>' , 'convert decimal int into binary')
+    .option('--b2d <args>' , 'convert binary int into decimal number ')
     .parse(process.argv)
 
 
 // link models to view (output.js)
 if (program.calc) output.printResult(calc(program.calc))
 else if (program.d2b) output.printResult(binaryDecimalConventer.decimalToBinary(program.d2b))
+else if (program.b2d) output.printResult(binaryDecimalConventer.binaryToDecimal(program.b2d))
